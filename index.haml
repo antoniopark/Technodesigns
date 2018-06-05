@@ -1,0 +1,89 @@
+
+-galeria =["1.jpg","2.jpg","3.jpg","4.jpg"]
+-herramienta =["1.jpg"]
+!!!5
+%html{class:"no-js", lang:"es"}
+  %head
+    %meta{charset:"utf-8"}
+    %title TechnoDesigns Tu mejor opcion.
+    %meta{name:"description", content:"Tu mejor opcion en Ropa"}
+    %link{href:'https://fonts.googleapis.com/css?family=Lobster', rel:'stylesheet'}
+    %link{rel:"stylesheet", href:"css/normalize.css"}
+    %link{rel:"stylesheet", href:"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"}
+    %link{rel:"stylesheet", href:"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"}
+    %link{rel:"stylesheet", href:"https://cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.css"}
+    %link{rel:"stylesheet", href:"css/style.css"}
+    %meta{name:"viewport", content:"width=device-width, initial-scale=1"}
+    %meta{:"data-name" => "image-counter", content:"#{galeria.size - 1}"}
+    %script{src:"js/vendor/modernizr-2.8.3.min.js"}
+  %body
+    ="<!--[if lt IE 9]>"
+    %p{class:"browserupgrade"}
+      Estás usando un navegador
+      %strong desactualizado.
+      Por favor
+      %a{href:"http://browsehappy.com/"}
+        actualiza tu navegador
+      para una mejor experiencia
+    ="<![endif]-->"
+    .video-container
+      %video{autoplay:true,loop:true,width:"1280",height:"720",poster:"videos/snapshots/clothing.jpg"}
+        %source{src:"videos/mp4/Busy-People.mp4",typ:"video/mp4"}
+        %source{src:"videos/webm/clothing.webm",typ:"video/webm"}
+    .row.full-height.middle-xs.center-xs.relative.up
+      .col-xs-12
+        .box.white-text
+          %img{src:"imgs/blitzfff.png"}
+          %h1.Lobster.title.no-margin BlitzSoftware
+          %p#is-open 
+            %i.glyphicon.glyphicon-time 
+            Proximamente
+    %nav.fixed.top.up.right.navigation.white-text.medium#navigation
+      -menu = ["Inicio","Productos","Galeria","Herramienta de diseño","Contacto","Cómo llegar"]
+      %ul.list-inline
+        -menu.each do |item|
+          %li
+            %a{}= item
+    .absolute.medium.black.large-padding.full-width.white-text.center-xs.up--2#description
+      .row.middle-xs.center-xs
+        .col-xs-8.col-sm-6.moto Atención cálida y diseños elaborados por grandes artistas: Tú
+        .col-xs#sticky-navigation
+          .box
+            %nav.small.text-right.navigation#responsive-nav
+              %ul.list-inline
+                -menu.each do |item|
+                  %li
+                    %a{}= item    
+    .text-center.relative#catalogo
+      .absolute.fondo.white-text#catalogo-title
+        %h2.Lobster.title Productos
+      -catalogo =[{title: "Divertidas", pricing: "150.00",image:"playera"},{title: "Videojuegos", pricing: "150.00",image:"playera2"},{title: "Keep Calm", pricing: "120.00",image:"keep"},{title: "Pixel Art", pricing: "190.00",image:"pixel"},{title: "Armadura", pricing: "200.00",image:"armadura"},{title: "Gorras", pricing: "450.00",image:"gorras"},{title: "Sudadera Videojuegos", pricing: "500.00",image:"sudaderavj"},{title: "Sudadera Cine y tv", pricing: "500.00",image:"sudaderatvv"}]
+      .row
+        -catalogo.each do |photo|
+          .col-md-4.col-lg-3.col-sm-6.col-xs-12.catalogo{style:"background-image:url(imgs/catalogo/#{photo[:image]}.jpg)"}
+            .screen
+              .row.full-height.middle-xs
+                .col-xs-12
+                  %h3.Lobster.white-text.subtitulo= photo[:title]
+                  %p.no-margin.white-text= photo[:pricing] + " MXM"
+    #galeria
+      .inner
+        -galeria.each do |image|
+          .image{style:"background-image:url(imgs/slider/#{image});"}
+
+    #herramienta
+      .inner
+        -herramienta.each do |image|
+          .image{style:"background-image:url(imgs/herr/#{image});"}
+
+    #location
+      #map
+      #message.black.large-padding.white-text.center.text-center.medium    Tu Ropa Esta Siendo Diseñada Aquí Visítanos!         
+
+    %script{src:"https://code.jquery.com/jquery-1.12.0.min.js"}
+    %script
+      window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')
+    %script{src:"dist/main.js"}
+    %script{src:"https://maps.googleapis.com/maps/api/js?key=AIzaSyBl35WiDsFJeaM0SnH4EC3iFG6j2yZ6xXI"} 
+    %script{src:"dist/maps.js"}   
+

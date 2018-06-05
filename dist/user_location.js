@@ -1,0 +1,1 @@
+"use strict";function _classCallCheck(e,n){if(!(e instanceof n))throw new TypeError("Cannot call a class as a function")}var UserLocation=function e(n){var t=this;_classCallCheck(this,e),navigator.geolocation&&navigator.geolocation.getCurrentPosition(function(e){t.latitude=e.coords.lat,t.longitude=e.coords.lng,n()})};
